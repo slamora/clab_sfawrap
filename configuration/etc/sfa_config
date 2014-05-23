@@ -1,0 +1,70 @@
+[sfa]
+generic_flavour = clab
+interface_hrn = confine
+credential_schema = /etc/sfa/credential.xsd
+api_loglevel = 2
+max_slice_renew = 60
+session_key_path = /var/lib/sfa/session_keys
+data_dir = /var/lib/sfa/
+
+[sfa_registry]
+enabled = true
+host = 84.88.85.16
+port = 12345
+root_auth = confine
+
+[sfa_sm]
+enabled = true
+host = 84.88.85.16
+port = 12347
+caching = false
+
+[sfa_aggregate]
+enabled = true
+host = 84.88.85.16
+port = 12346
+caching = true
+
+[sfa_db]
+enabled = true
+host = 84.88.85.16
+port = 5432
+user = sfadbuser
+password = fe287a23-bc54-4eac-9263-2415d256f834
+name = sfa
+
+[sfa_flashpolicy]
+enabled = false
+config_file = /etc/sfa/sfa_flashpolicy_config.xml
+port = 843
+
+[sfa_plc]
+user = root@localhost.localdomain
+password = root
+url = https://localhost:443/PLCAPI/
+
+[sfa_federica]
+url = https://root:password@federica.sfa.wrapper.com:8443/fedewrapper/xmlrpc/
+
+[sfa_nova]
+user = novaadmin
+api_url = 127.0.0.1
+api_port = 8773
+novarc = /root/novarc
+
+[sfa_nitos]
+url = http://195.251.17.239:8080/RPC2
+
+[sfa_dummy]
+url = http://127.0.0.1:8080
+
+[sfa_clab]
+user = sfawrap
+password = f3d4f1r3!
+group = fed4fire
+url = https://controller.community-lab.net/api/
+auto_slice_creation = True
+auto_node_creation = False
+default_template = Debian Squeeze
+temp_dir_exp_data = /home/gerard/clab_sfawrap/experiment-data/
+
