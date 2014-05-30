@@ -22,6 +22,7 @@ cp ./clab_other/clabimporter.py /usr/lib/python2.7/dist-packages/sfa/importer/
 cp ./clab_other/clab.py /usr/lib/python2.7/dist-packages/sfa/generic/
 cp ./generic/auth.py /usr/lib/python2.7/dist-packages/sfa/trust/
 cp ./generic/pgv2.py /usr/lib/python2.7/dist-packages/sfa/rspecs/versions/
+cp ./generic/cache.py /usr/lib/python2.7/dist-packages/sfa/util/
 
 # Wrapper configuraiton files
 cp -r ./configuration/etc/* /etc/sfa/

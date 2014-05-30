@@ -21,6 +21,7 @@ The correspondance between the files, modules and classes is:
 ./clab_other/clab.py  		-->   /usr/lib/python2.7/dist-packages/sfa/generic/
 ./generic/auth.py  		-->   /usr/lib/python2.7/dist-packages/sfa/trust/
 ./generic/pgv2.py  		-->   /usr/lib/python2.7/dist-packages/sfa/rspecs/versions/
+./generic/cache.py  		-->   /usr/lib/python2.7/dist-packages/sfa/util/
 ./configuration/etc/		-->   /etc/sfa/
 ./configuration/sfa-config-tty  -->   /usr/bin/
 

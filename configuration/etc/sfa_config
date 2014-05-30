@@ -60,7 +60,7 @@ url = http://127.0.0.1:8080
 
 [sfa_clab]
 user = sfawrap
-password = f3d4f1r3!
+password = *********
 group = fed4fire
 url = https://controller.community-lab.net/api/
 auto_slice_creation = True
@@ -68,5 +68,5 @@ auto_node_creation = False
 aggregate_caching = True
 aggregate_cache_expiration_time = 600
 default_template = Debian Squeeze
-temp_dir_exp_data = /home/gerard/clab_sfawrap/experiment-data/
+temp_dir_exp_data = /tmp/clab_sfawrap/experiment-data/
 
