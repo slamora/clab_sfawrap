@@ -19,6 +19,7 @@ from sfa.rspecs.elements.node import NodeElement
 from sfa.util.faults import SearchFailed
 
 import datetime
+import time
 
 # local imports from the Project
 #from rspecs.elements.versions.clabNode import ClabNode
@@ -109,15 +110,7 @@ class ClabAggregate:
         version = version_manager.get_version('GENI 3')        
         rspec_version = version_manager._get_version(version.type, version.version, 'ad')
         rspec = RSpec(version=rspec_version, user_options=options)        
-        
-        # List resources: available nodes and/or slices??
-        # belonging to the aggregate
-        # and the user??? 
-        # all the users can create slices in any node?
-        # the users can create slivers in their own slices?
-        
-        # username can be obtained form the credential
-        
+           
         #Geni state in options?
         state=None
         if options.get('available'): state='available'
@@ -133,7 +126,8 @@ class ClabAggregate:
         # Function get slices
         #slices = self.get_slices_by_geni_state(state)
 
-        rspec.version.add_nodes(rspec_nodes)       
+        rspec.version.add_nodes(rspec_nodes)
+        
         return rspec.toxml()
     
     
@@ -1390,17 +1384,20 @@ mkdir -p /root/.ssh  \n\
         :rtype list
         ''' 
         rspec_interfaces = []
-        local_iface = node['local_iface']
+        
+        # LOCAL IFACE FIELD REMOVED IN THE CONTROLLER UPGRADE (28/05/2014)
+        #local_iface = node['local_iface']
         direct_ifaces = node['direct_ifaces']
         
         # Unicode normalize node name in case it contains special characters (no ascii chrarcters)
         node_name = unicode_normalize(node['name'])
         
-        if local_iface:
-            client_id = '%s:%s'%(node_name, local_iface)
-            rspec_local_iface = dict([('interface_id', local_iface), ('node_id', node['id']), 
-                                      ('role', 'local_iface'), ('client_id', client_id)])
-            rspec_interfaces.append(rspec_local_iface)
+        #if local_iface:
+        #    client_id = '%s:%s'%(node_name, local_iface)
+        #    rspec_local_iface = dict([('interface_id', local_iface), ('node_id', node['id']), 
+        #                              ('role', 'local_iface'), ('client_id', client_id)])
+        #    rspec_interfaces.append(rspec_local_iface)
+        
         if direct_ifaces:
             for direct_iface in direct_ifaces:
                 client_id = '%s:%s'%(node_name, direct_iface)
