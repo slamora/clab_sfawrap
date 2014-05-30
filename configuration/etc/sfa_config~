@@ -9,25 +9,25 @@ data_dir = /var/lib/sfa/
 
 [sfa_registry]
 enabled = true
-host = 84.88.85.16
+host = 147.83.35.237
 port = 12345
 root_auth = confine
 
 [sfa_sm]
 enabled = true
-host = 84.88.85.16
+host = 147.83.35.237
 port = 12347
 caching = false
 
 [sfa_aggregate]
 enabled = true
-host = 84.88.85.16
+host = 147.83.35.237
 port = 12346
 caching = true
 
 [sfa_db]
 enabled = true
-host = 84.88.85.16
+host = 147.83.35.237
 port = 5432
 user = sfadbuser
 password = fe287a23-bc54-4eac-9263-2415d256f834
