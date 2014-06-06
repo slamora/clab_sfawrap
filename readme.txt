@@ -16,15 +16,19 @@ so it can work with Community-Lab SFA wrapper.
 
 The correspondance between the files, modules and classes is:
 
-./clab/  			-->   /usr/lib/python2.7/dist-packages/sfa/
-./clab_other/clabimporter.py    -->   /usr/lib/python2.7/dist-packages/sfa/importer/
-./clab_other/clab.py  		-->   /usr/lib/python2.7/dist-packages/sfa/generic/
-./generic/auth.py  		-->   /usr/lib/python2.7/dist-packages/sfa/trust/
-./generic/pgv2.py  		-->   /usr/lib/python2.7/dist-packages/sfa/rspecs/versions/
-./generic/cache.py  		-->   /usr/lib/python2.7/dist-packages/sfa/util/
-./configuration/etc/		-->   /etc/sfa/
-./configuration/sfa-config-tty  -->   /usr/bin/
-
+./clab/  				-->   /usr/lib/python2.7/dist-packages/sfa/
+./clab_other/clabimporter.py    	-->   /usr/lib/python2.7/dist-packages/sfa/importer/
+./clab_other/clab.py  			-->   /usr/lib/python2.7/dist-packages/sfa/generic/
+./generic/auth.py  			-->   /usr/lib/python2.7/dist-packages/sfa/trust/
+./generic/pgv2.py  			-->   /usr/lib/python2.7/dist-packages/sfa/rspecs/versions/
+./generic/cache.py  			-->   /usr/lib/python2.7/dist-packages/sfa/util/
+./configuration/etc/			-->   /etc/sfa/
+./configuration/sfa-config-tty  	-->   /usr/lib/python2.7/dist-packages/sfa/rspecs/versions/
+./rspec/clabv1.py			-->   /usr/lib/python2.7/dist-packages/sfa/rspecs/elements/versions/
+./rspec/clabv1Node.py			-->   /usr/lib/python2.7/dist-packages/sfa/rspecs/elements/versions/
+./rspec/clabv1Sliver.py			-->   /usr/lib/python2.7/dist-packages/sfa/rspecs/elements/versions/
+./rspec/clabv1SliverParameters.py	-->   /usr/lib/python2.7/dist-packages/sfa/rspecs/elements/versions/
+./rspec/clabv1Interface.py		-->   /usr/lib/python2.7/dist-packages/sfa/rspecs/elements/versions/
 
 
 INSTALL
@@ -48,8 +52,8 @@ To configure the SFAWrap to work with Community-Lab_
 2. Type "u" for usual changes.
 3. Enter the configuration:
 	 sfa_generic_flavour : [clab] 
-	 sfa_interface_hrn : [confine] 
-	 sfa_registry_root_auth : [confine] 
+	 sfa_interface_hrn : [clab] 
+	 sfa_registry_root_auth : [clab] 
 	 sfa_registry_host : [ip_of_the-host] 
 	 sfa_aggregate_host : [ip_of_the-host] 
 	 sfa_sm_host : [ip_of_the-host] 
@@ -60,6 +64,8 @@ To configure the SFAWrap to work with Community-Lab_
 	 sfa_clab_url : [https://controller.community-lab.net/api/] 
 	 sfa_clab_auto_slice_creation : [True] 
 	 sfa_clab_auto_node_creation : [False] 
+	 sfa_clab_aggregate_caching : [True] 
+	 sfa_clab_aggregate_cache_expiration_time : [600]
 	 sfa_clab_default_template : [Debian Squeeze] 
 	 sfa_clab_temp_dir_exp_data : [~/clab_sfawrap/experiment-data/] 
 4. Type "w" to write the changes.

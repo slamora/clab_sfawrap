@@ -60,7 +60,7 @@ url = http://127.0.0.1:8080
 
 [sfa_clab]
 user = sfawrap
-password = *********
+password = f3d4f1r3!
 group = fed4fire
 url = https://controller.community-lab.net/api/
 auto_slice_creation = True
