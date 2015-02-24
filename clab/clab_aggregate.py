@@ -294,7 +294,7 @@ class ClabAggregate:
         # parse RSpec (if rspec_string argument)
         rspec = RSpec(rspec_string, version=rspec_version)
         # nodes in which the slivers will be created (list of dict)
-        # the dict contains a 'slivers' field, a list of dicts with info about slivers (template, overlay, sliver_interfaces)
+        # the dict contains a 'slivers' field, a list of dicts with info about slivers (template, sliver_interfaces)
         nodes_with_slivers = rspec.version.get_nodes_with_slivers()
         # ignore slice attributes...
         requested_attributes = rspec.version.get_slice_attributes()
@@ -1512,10 +1512,6 @@ mkdir -p /root/.ssh  \n\
             template_uri = self.driver.testbed_shell.get_slice_by(slice_uri=sliver['slice']['uri'])['template']
         template = self.driver.testbed_shell.get_template_by(template_uri=template_uri['uri'])
         rspec_sliver['template'] = {'name':template['name'], 'id':template['id'], 'type':template['type']}
-        # Overlay
-        overlay = sliver.get('overlay')
-        if overlay:
-            rspec_sliver['overlay'] = {'uri':overlay['uri']}
         # Interfaces 
         rspec_sliver['interfaces'] = sliver['interfaces'] 
         
@@ -1548,7 +1544,6 @@ mkdir -p /root/.ssh  \n\
             
             # EXTENSION FOR CLab v1 RSpec
             # Template
-            # Overlay
             # Interfaces
             
             rspec_slivers.append(rspec_sliver)

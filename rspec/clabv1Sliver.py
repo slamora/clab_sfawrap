@@ -10,7 +10,6 @@ from sfa.rspecs.elements.versions.plosv1FWRule import PLOSv1FWRule
 
 from sfa.rspecs.elements.versions.clabv1SliverParameters import Clabv1SliverParameters
 from sfa.rspecs.elements.versions.clabv1SliverParameters import Clabv1Template
-from sfa.rspecs.elements.versions.clabv1SliverParameters import Clabv1Overlay
 from sfa.rspecs.elements.versions.clabv1SliverParameters import Clabv1NetworkInterface
 
 
@@ -48,10 +47,6 @@ class Clabv1Sliver:
             template = sliver.get('template')
             if template:
                 sliver_parameters_elem.add_element('{%s}template'%xml.namespaces['clab'], name=template['name'], id=str(template['id']), type=template['type'])
-            # overlay
-            overlay = sliver.get('overlay')
-            if overlay:
-                sliver_parameters_elem.add_element('{%s}overlay'%xml.namespaces['clab'], name=overlay['uri'], uri=overlay['uri'])
             # interfaces
             #sliver_interfaces_elem = sliver_parameters_elem.add_element('{%s}sliver_interfaces'%xml.namespaces['clab'])
             interfaces = sliver.get('interfaces')
@@ -103,12 +98,6 @@ class Clabv1Sliver:
                     template_elem = template_elems[0]  
                     template = dict(template_elem.get_instance(Clabv1Template))
                     sliver['template'] = template
-                # get the overlay element
-                overlay_elems = sliver_parameters_elem.xpath('./clab:overlay | ./overlay', namespaces=xml.namespaces)
-                if overlay_elems:
-                    overlay_elem = overlay_elems[0]  
-                    overlay = dict(overlay_elem.get_instance(Clabv1Overlay))
-                    sliver['overlay'] = overlay
                 # get the sliver interfaces element (list of SliverInterface elems)
                 #sliver_interfaces_elems = sliver_parameters_elem.xpath('./clab:sliver_interfaces | ./sliver_interfaces', namespaces=xml.namespaces)
                 #if sliver_interfaces_elems:

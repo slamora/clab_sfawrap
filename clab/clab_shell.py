@@ -884,7 +884,7 @@ class ClabShell:
             template = self.get_by_uri(template_uri)
         else:
             template = self.get_template_by(template_name=self.default_template)
-        sliver_defaults={"instance_sn": 0, "data_uri": "","overlay_uri": "", 
+        sliver_defaults={"instance_sn": 0, "data_uri": "",
                          "template": {"uri": template['uri'],"id": template['id']}}
             
         # Create slice
@@ -1163,8 +1163,6 @@ class ClabShell:
                     slice.update(vlan_nr=fields[key])
                 elif key=='exp_data_uri':
                     slice.update(exp_data_uri=fields[key])
-                elif key=='overlay_uri':
-                    slice.update(overlay_uri=fields[key])
                 elif key=='name':    
                     slice.update(name=fields[key])
                 elif key=='description':
@@ -1198,8 +1196,6 @@ class ClabShell:
                     sliver.update(interfaces=fields[key])
                 elif key=='exp_data_uri':
                     sliver.update(exp_data_uri=fields[key])
-                elif key=='overlay_uri':
-                    sliver.update(overlay_uri=fields[key])
                 elif key=='name':    
                     sliver.update(name=fields[key])
                 elif key=='description':
