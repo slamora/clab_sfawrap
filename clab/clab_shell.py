@@ -4,8 +4,9 @@ Created on 06/02/2014
 @author: gerard
 '''
 
-import time
+import json
 import requests
+import time
 
 from orm.api import Api
 from orm.resources import Resource
@@ -564,9 +565,7 @@ class ClabShell:
             
         node_no_serialized = self.get_by_uri_no_serialized(node_uri)
         state_link = node_no_serialized.get_links()['http://confine-project.eu/rel/controller/state']
-        from ast import literal_eval
-        # content.split('{"current": "')[1].split('"')[0]
-        current_state = literal_eval(controller.get(state_link).content.replace('null','"null"'))
+        current_state = json.loads(controller.get(state_link).content)
         return current_state['current']
             
     
