@@ -4,7 +4,6 @@ Created on 06/02/2014
 @author: gerard
 '''
 
-import json
 import requests
 import time
 
@@ -565,7 +564,7 @@ class ClabShell:
             
         node_no_serialized = self.get_by_uri_no_serialized(node_uri)
         state_link = node_no_serialized.get_links()['http://confine-project.eu/rel/controller/state']
-        current_state = json.loads(controller.get(state_link).content)
+        current_state = controller.get(state_link).json()
         return current_state['current']
             
     
@@ -593,7 +592,7 @@ class ClabShell:
         
         sliver_no_serialized = self.get_by_uri_no_serialized(sliver_uri)
         state_link = sliver_no_serialized.get_links()['http://confine-project.eu/rel/controller/state']
-        current_state = json.loads(controller.get(state_link))
+        current_state = controller.get(state_link).json()
         return current_state['current'] 
     
     
