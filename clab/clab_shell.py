@@ -593,8 +593,7 @@ class ClabShell:
         
         sliver_no_serialized = self.get_by_uri_no_serialized(sliver_uri)
         state_link = sliver_no_serialized.get_links()['http://confine-project.eu/rel/controller/state']
-        from ast import literal_eval
-        current_state = literal_eval(controller.get(state_link).content.replace('null','"null"'))
+        current_state = json.loads(controller.get(state_link))
         return current_state['current'] 
     
     
